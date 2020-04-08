@@ -58,7 +58,7 @@ const Telegram = EventEmitter => class extends EventEmitter {
 
     return Request(options)
     .then(resp => {
-      if (resp.statusCode !== 200) {
+       if (!((resp.statusCode == 200) || (resp.statusCode==400))) {
         throw new Error(resp.statusCode + ':\n'+ resp.body);
       }
 
